@@ -1,0 +1,15 @@
+
+#!name=𝐂𝐨𝐥𝐨𝐫 𝐖𝐢𝐝𝐠𝐞𝐭𝐬
+#!desc=𝐁𝐲: 𝐌𝐢𝐡𝐭𝐫𝐳𝐳
+
+# IG: Mihtrzz
+# Copyright © Mihtrzz. All rights reserved.
+# The source code is encrypted and protected.
+
+[MITM]
+hostname= api.revenuecat.com
+
+[Script]
+
+# Color Widgets
+Colorwidget=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscribers)/*,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/origin/refs/heads/main/colorwidgets.js
