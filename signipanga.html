@@ -56,6 +56,19 @@
       min-width: 0;
     }
 
+    .link-section + .link-section {
+      margin-top: 52px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      color: var(--fg);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.35;
+      text-align: center;
+    }
+
     .links {
       display: flex;
       flex-direction: column;
@@ -107,7 +120,16 @@
 <body>
   <canvas id="binary" aria-hidden="true"></canvas>
   <main>
-    <ul class="links" aria-label="Liên kết ứng dụng">
+    <section class="link-section" aria-labelledby="certificate-heading">
+      <h2 class="section-title" id="certificate-heading">Certificate</h2>
+      <ul class="links" aria-label="Liên kết chứng chỉ">
+        <li><a href="https://github.com/mihtrzz/origin/raw/refs/heads/main/certificate.zip" target="_blank" rel="noopener noreferrer">Certificate 15</a></li>
+      </ul>
+    </section>
+
+    <section class="link-section application-section" aria-labelledby="application-heading">
+      <h2 class="section-title" id="application-heading">Application</h2>
+      <ul class="links" aria-label="Liên kết ứng dụng">
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dftjq2xy9" target="_blank" rel="noopener noreferrer">Facebook</a></li>
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Drqqhcrwo" target="_blank" rel="noopener noreferrer">Hypic</a></li>
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3D7bi31p7q" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -117,7 +139,8 @@
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Ddnahtcht" target="_blank" rel="noopener noreferrer">TikTok</a></li>
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dtscjqvar" target="_blank" rel="noopener noreferrer">Wink</a></li>
     <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dcu9oitn5" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-  </ul>
+      </ul>
+    </section>
   </main>
   <script>
 (function () {
