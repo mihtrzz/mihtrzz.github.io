@@ -3,248 +3,211 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Minh Tran</title>
-  <meta name="description" content="Thông tin liên hệ.">
   <meta name="theme-color" content="#f4f4f4">
-  <meta property="og:title" content="Minh Tran">
-  <meta property="og:description" content="Thông tin liên hệ.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="no-referrer">
+  <base target="_blank">
+
+  <title>Minh Tran</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --fg: #232427;
-      --btn: #fff;
-      --btn-text: #20242a;
-      --btn-hover: #f0f3f7;
-      --accent: #555b66;
-      --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color-scheme: light;
+      --bg: #f4f4f4;
+      --text: #232427;
+      --card: #fff;
+      --card-text: #20242a;
+      --card-border: #d9dee7;
+      --card-hover: #f0f3f7;
+      --card-hover-border: #c6ced9;
+      --card-active: #e9edf2;
+      --focus: #555b66;
     }
 
-    html { background: #f4f4f4; }
+    html {
+      background: var(--bg);
+    }
 
     body {
       margin: 0;
-      min-height: 100vh;
-      min-height: 100dvh;
-      box-sizing: border-box;
-      background: #f4f4f4 fixed;
-      color: var(--fg);
-      font-family: var(--font);
-      padding: 40px max(16px, env(safe-area-inset-right, 0px)) 56px max(16px, env(safe-area-inset-left, 0px));
+      padding: 40px max(16px, env(safe-area-inset-right)) 56px max(16px, env(safe-area-inset-left));
+      color: var(--text);
+      font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    #binary {
+    canvas {
       position: fixed;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      z-index: -1;
       pointer-events: none;
-      z-index: 1;
     }
 
     main {
-      position: relative;
-      z-index: 2;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
       max-width: 480px;
       margin: 0 auto;
-      min-width: 0;
     }
 
-    .link-section + .link-section {
-      margin-top: 52px;
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .section-title {
-      margin: 0 0 18px;
-      color: var(--fg);
+    h2 {
+      margin: 0 0 4px;
       font-size: 21px;
       font-weight: 600;
       line-height: 1.35;
       text-align: center;
     }
 
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .links a {
-      display: block;
-      box-sizing: border-box;
+    section a {
       padding: 18px 20px;
-      background: var(--btn);
-      color: var(--btn-text);
-      border: 1px solid #d9dee7;
+      border: 1px solid var(--card-border);
       border-radius: 16px;
+      background: var(--card);
+      color: var(--card-text);
       box-shadow: 0 5px 16px rgba(31, 41, 55, .09), 0 1px 2px rgba(31, 41, 55, .05);
-      text-align: center;
-      text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       line-height: 1.35;
+      text-align: center;
+      text-decoration: none;
       overflow-wrap: anywhere;
-      transition: transform .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease;
+      transition: transform .16s, background-color .16s, border-color .16s, box-shadow .16s;
     }
 
-    .links a:hover {
-      background: var(--btn-hover);
-      border-color: #c6ced9;
+    section a:hover {
+      border-color: var(--card-hover-border);
+      background: var(--card-hover);
       box-shadow: 0 9px 22px rgba(31, 41, 55, .13), 0 2px 5px rgba(31, 41, 55, .06);
       transform: translateY(-3px);
     }
 
-    .links a:active {
-      background: #e9edf2;
+    section a:active {
+      background: var(--card-active);
       box-shadow: 0 2px 6px rgba(31, 41, 55, .08);
-      transform: translateY(0);
+      transform: none;
     }
 
-    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; }
-      .links a:hover { transform: none; }
+      section a:hover { transform: none; }
     }
   </style>
 </head>
+
 <body>
-  <canvas id="binary" aria-hidden="true"></canvas>
+  <canvas aria-hidden="true"></canvas>
+
   <main>
-    <section class="link-section" aria-labelledby="certificate-heading">
-      <h2 class="section-title" id="certificate-heading">Certificate</h2>
-      <ul class="links" aria-label="Certificate">
-        <li><a href="https://github.com/mihtrzz/origin/raw/refs/heads/main/hercertificate.zip" target="_blank" rel="noopener noreferrer">Certificate 13</a></li>
-      </ul>
+    <section>
+      <h2>Certificate</h2>
+      <a href="https://github.com/mihtrzz/origin/raw/refs/heads/main/hercertificate.zip">Certificate 13</a>
     </section>
 
-    <section class="link-section application-section" aria-labelledby="application-heading">
-      <h2 class="section-title" id="application-title">Application</h2>
-      <ul class="links" aria-label="Application">
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dhtlfygy9" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Drqqhcrwo" target="_blank" rel="noopener noreferrer">Hypic</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dbm8xrnff" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dx2pchxqg" target="_blank" rel="noopener noreferrer">Meitu</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Debw0m6rb" target="_blank" rel="noopener noreferrer">MoneyNote</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3D4qistyrn" target="_blank" rel="noopener noreferrer">Spotify</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dykouux3s" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dtscjqvar" target="_blank" rel="noopener noreferrer">Wink</a></li>
-    <li><a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dtqqblwi7" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-      </ul>
+    <section>
+      <h2>Application</h2>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dhtlfygy9">Facebook</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Drqqhcrwo">Hypic</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dbm8xrnff">Instagram</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dx2pchxqg">Meitu</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Debw0m6rb">MoneyNote</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3D4qistyrn">Spotify</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dykouux3s">TikTok</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dtscjqvar">Wink</a>
+      <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fi.codevn.net%2Fplist.php%3Fid%3Dtqqblwi7">YouTube</a>
     </section>
   </main>
+
   <script>
-(function () {
-  'use strict';
+    const CELL_W = 22;
+    const CELL_H = 27;
+    const COLOR = '#aeb5bb';
+    const WARM_COLOR = '#e6a98d';
+    const WARM_CHANCE = .045;
+    const FONT = '13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
 
-  var canvas = document.getElementById('binary');
-  if (!canvas || !canvas.getContext) return;
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let width, height, digits;
 
-  var ctx = canvas.getContext('2d');
-  var width = 0;
-  var height = 0;
-  var dpr = 1;
-  var columns = 0;
-  var rows = 0;
-  var digits = [];
-  var cellWidth = 22;
-  var cellHeight = 27;
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const random = (min, max) => min + Math.random() * (max - min);
 
-  function random(min, max) {
-    return min + Math.random() * (max - min);
-  }
+    function rebuild() {
+      const dpr = Math.min(devicePixelRatio, 2);
+      width = innerWidth;
+      height = innerHeight;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.font = FONT;
 
-  function createDigit(column, row, now) {
-    var warm = Math.random() < 0.045;
-    return {
-      x: column * cellWidth + cellWidth / 2 + random(-1.5, 1.5),
-      y: row * cellHeight + cellHeight / 2 + random(-1.5, 1.5),
-      value: Math.random() < 0.5 ? '0' : '1',
-      color: warm ? '#e6a98d' : '#aeb5bb',
-      strength: warm ? random(0.28, 0.48) : random(0.26, 0.43),
-      fadeIn: random(110, 300),
-      hold: random(140, 420),
-      fadeOut: random(130, 340),
-      pause: random(70, 320),
-      offset: random(0, 1800),
-      born: now
-    };
-  }
+      const cols = Math.ceil(width / CELL_W) + 1;
+      const rows = Math.ceil(height / CELL_H) + 1;
 
-  function rebuild(now) {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      digits = Array.from({ length: cols * rows }, (_, i) => {
+        const warm = Math.random() < WARM_CHANCE;
+        const fadeIn = random(110, 300);
+        const fadeOut = random(130, 340);
+        const active = fadeIn + random(140, 420) + fadeOut;
 
-    columns = Math.ceil(width / cellWidth) + 1;
-    rows = Math.ceil(height / cellHeight) + 1;
-    digits = [];
-    for (var row = 0; row < rows; row++) {
-      for (var column = 0; column < columns; column++) {
-        digits.push(createDigit(column, row, now));
+        return {
+          x: (i % cols + .5) * CELL_W + random(-1.5, 1.5),
+          y: (Math.floor(i / cols) + .5) * CELL_H + random(-1.5, 1.5),
+          value: Math.random() < .5 ? '0' : '1',
+          color: warm ? WARM_COLOR : COLOR,
+          strength: warm ? random(.28, .48) : random(.26, .43),
+          fadeIn,
+          fadeOut,
+          active,
+          cycle: active + random(70, 320),
+          offset: random(0, 1800)
+        };
+      });
+    }
+
+    function draw(now) {
+      ctx.clearRect(0, 0, width, height);
+
+      for (const d of digits) {
+        const t = (now + d.offset) % d.cycle;
+        const fade = Math.max(0, Math.min(t / d.fadeIn, 1, (d.active - t) / d.fadeOut));
+        const alpha = d.strength * (reduced ? .72 : fade);
+        if (alpha <= .005) continue;
+
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = d.color;
+        ctx.fillText(d.value, d.x, d.y);
       }
-    }
-  }
 
-  function getOpacity(digit, now) {
-    if (reducedMotion) return digit.strength * 0.72;
-
-    var cycle = digit.fadeIn + digit.hold + digit.fadeOut + digit.pause;
-    var elapsed = (now - digit.born + digit.offset) % cycle;
-    if (elapsed < digit.fadeIn) {
-      return digit.strength * (elapsed / digit.fadeIn);
-    }
-    elapsed -= digit.fadeIn;
-    if (elapsed < digit.hold) return digit.strength;
-    elapsed -= digit.hold;
-    if (elapsed < digit.fadeOut) {
-      return digit.strength * (1 - elapsed / digit.fadeOut);
-    }
-    return 0;
-  }
-
-  function draw(now) {
-    ctx.clearRect(0, 0, width, height);
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.font = '400 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
-
-    for (var i = 0; i < digits.length; i++) {
-      var digit = digits[i];
-      var opacity = getOpacity(digit, now);
-      if (opacity <= 0.005) continue;
-
-      ctx.globalAlpha = opacity;
-      ctx.fillStyle = digit.color;
-      ctx.fillText(digit.value, digit.x, digit.y);
+      if (!reduced) requestAnimationFrame(draw);
     }
 
-    ctx.globalAlpha = 1;
-    if (!reducedMotion) window.requestAnimationFrame(draw);
-  }
+    rebuild();
+    draw(0);
 
-  var initialTime = performance.now();
-  rebuild(initialTime);
-  window.addEventListener('resize', function () {
-    rebuild(performance.now());
-  }, { passive: true });
-  draw(initialTime);
-})();
-</script>
+    addEventListener('resize', () => {
+      rebuild();
+      if (reduced) draw(0);
+    });
+  </script>
 </body>
 </html>
